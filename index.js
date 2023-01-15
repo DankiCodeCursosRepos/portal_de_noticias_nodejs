@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 const path  = require('path');
 
 const app = express();
+const port = 3030
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -19,16 +20,16 @@ app.get('/', (req, res)=> {
     res.render('home', {})
 
   } else {
-
-    res.send(`Você procurou por : ${req.query.busca}`)
+    res.render('busca', {})
   }
 
 });
 
 app.get('/:slug', (req, res)=> {
-  res.send(req.params.slug);
+  // res.send(req.params.slug);
+  res.render('single',{})
 });
 
-app.listen(3030, () => {
-  console.log('servidor no ar')
+app.listen(port, () => {
+  console.log(`servidor no ar na porta ${port}`)
 });
