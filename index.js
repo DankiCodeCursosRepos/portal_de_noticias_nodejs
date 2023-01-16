@@ -31,6 +31,7 @@ app.set('views', path.join(__dirname, '/pages'));
 app.get('/', (req, res)=> {
 
   if(req.query.busca == null){
+
     Posts.find({}).sort({'_id': -1}).exec(function(err, posts){
       // console.log(posts[0]);
       posts = posts.map(function(val){
