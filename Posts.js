@@ -13,3 +13,5 @@ var postSchema = new Schema({
 }, {collection: 'posts',})
 
 var Posts = mongoose.model('Posts', postSchema);
+
+module.exports = Posts
